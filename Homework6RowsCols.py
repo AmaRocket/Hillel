@@ -1,5 +1,5 @@
 s = int (input('Введите высоту фигуры : '))
-cols = rows = s
+cols = rows = s * 2 - 1
 
 # i == rows - 1  = i == cols-1  нижняя строка
 # i == rows // 2  =  i==rows-i -1 центральная строка
