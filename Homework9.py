@@ -72,24 +72,46 @@ print(calculation(n, b))
 направление сдвига (по умолчанию влево (False)).
 '''
 
-lst = [randint(1, 100) for _ in range(10)]
-print(lst)
-
 a = (int(input("Число для сдвига: ")))
+print(a)
 b = (int(input("Кол-во разрядов для сдвига : ")))
-c = (int(input('(-1) - Влево, (1) - Вправо: ')))
+c = (input('False - Влево, True - Вправо: '))
 
-def shift(lst, step, side):
-    if step > side:
-        step = abs(step)
-        for i in range(step):
-            lst.append(lst.pop(0))
+def shift_left(number, step):
+    for _ in range(step):
+        tmp = number
+        d = 0
+        rate = 0
+        while tmp > 0:
+            d = tmp % 10
+            tmp //= 10
+            rate += 1
+
+        number = number % (10 ** (rate-1)) * 10 + d
+    return number
+
+def shift_right(number, step):
+    for _ in range(step):
+
+        tmp = number
+        d = tmp % 10
+        tmp //= 10
+        rate = 1
+        while tmp > 0:
+            tmp *= 10
+            tmp += 1
+        number = d * rate + number // 10
+    return number
+
+def shift(number, step, side=False):
+    if side:
+        res = shift_right(number, step)
     else:
-        for i in range(step):
-            lst.insert(0, lst.pop())
+        res = shift_left(number, step)
+    return res
 
-shift(lst, b, c)
-print(lst)
+a = shift(a, b, c)
+print(a)
 print()
 '''
 3. Реверс списка
