@@ -1,3 +1,5 @@
+import numpy as np
+
 '''
 1. В текстовый файл построчно записаны имя и фамилия учащихся класса и их оценки.
  Андрей Говорухи               6  6  1  4  9  9  10 4  8  2  3  8
@@ -48,10 +50,33 @@ lst = [
 
 
 
-lst=[]
-with open('homework_file.txt',encoding='utf-8') as f:
+# lst = []
+# mass = []
+# with open('homework_file.txt', 'r', encoding='utf-8') as file:
+#     count = 0
+#     summa = 0
+#     for line in file:
+#         lst = []
+#         x = 0
+#         count +=1
+#         stud = len(line)
+#         for i in (range(stud)):
+#
+#             if line[i].isdigit():
+#                 num = int(line[i])
+#                 summa += num
+#                 if num < 5:
+#                     pass
+#                     #print('Stud with avrg mark < 5 is: ', line)
+#                 break
+#             #avrg = count / summa
+#             #print('avrg mark in pool: ',line[0:25],avrg)
+#         #print(summa)
+#                 print(num)
+#
+with open('homework_file.txt', encoding='utf-8') as f:
     for line in f:
-        #print(line)
+        # print(line)
 
         l = len(line)
         integ = []
@@ -70,17 +95,18 @@ with open('homework_file.txt',encoding='utf-8') as f:
             if line_int != '':
                 integ.append(int(line_int))
 
-        print(for i in line, 'среднее арифметическое: ',sum(integ)/len(integ))
 
+        w = (sum(integ) / len(integ))
+        print(line[0:25], 'средний балл : ', w)
 '''
 2. Создать текстовый файл, записать в него построчно данные, которые вводит пользователь. 
 Окончанием ввода пусть служит пустая строка. Каждая введённая строка, в файле, должна начинаться с новой строки.
 '''
 
-file = open('data.txt', 'w', encoding='utf-8')
-while True:
-    s = input('Enter the string: ')
-    if s == '': break
-    file.write(s + '\n')
-
-file.close()
+# file = open('data.txt', 'w', encoding='utf-8')
+# while True:
+#     s = input('Enter the string: ')
+#     if s == '': break
+#     file.write(s + '\n')
+#
+# file.close()
